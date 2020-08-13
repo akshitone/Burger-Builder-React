@@ -14,3 +14,8 @@
         width: 500px;
     }
 }
+@media (min-width: 1000px) {
+    .CheckoutSummary {
+        width: 700px;
+    }
+}

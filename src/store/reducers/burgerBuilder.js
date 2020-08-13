@@ -3,15 +3,16 @@ import { updateObject } from '../utility';
 
 const initialState = {
     ingredients: null,
-    totalPrice: 4,
-    error: false
+    totalPrice: 350,
+    error: false,
+    building: false
 };
 
 const INGREDIENT_PRICES = {
-    salad: 0.5,
-    cheese: 0.4,
-    meat: 1.3,
-    bacon: 0.7
+    salad: 25.50,
+    cheese: 50.44,
+    meat: 35.30,
+    bacon: 75.77
 };
 
 const addIngredient = ( state, action ) => {
@@ -19,7 +20,8 @@ const addIngredient = ( state, action ) => {
     const updatedIngredients = updateObject( state.ingredients, updatedIngredient );
     const updatedState = {
         ingredients: updatedIngredients,
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        building: true
     }
     return updateObject( state, updatedState );
 };
@@ -29,7 +31,8 @@ const removeIngredient = (state, action) => {
     const updatedIngs = updateObject( state.ingredients, updatedIng );
     const updatedSt = {
         ingredients: updatedIngs,
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        building: true
     }
     return updateObject( state, updatedSt );
 };
@@ -42,8 +45,9 @@ const setIngredients = (state, action) => {
             cheese: action.ingredients.cheese,
             meat: action.ingredients.meat
         },
-        totalPrice: 4,
-        error: false
+        totalPrice: 350,
+        error: false,
+        building: false
     } );
 };
 
